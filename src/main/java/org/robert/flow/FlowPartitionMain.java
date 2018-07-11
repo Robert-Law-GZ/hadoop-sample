@@ -26,7 +26,7 @@ public class FlowPartitionMain {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FlowBean.class);
         job.setPartitionerClass(Partitioner.class);
-//        job.setNumReduceTasks(2);
+        job.setNumReduceTasks(1);
 
         FileInputFormat.addInputPath(job,new Path(args[0]));
         FileOutputFormat.setOutputPath(job,new Path(args[1]));
