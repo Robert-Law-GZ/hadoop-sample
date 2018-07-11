@@ -1,4 +1,4 @@
-package org.robert;
+package org.robert.wc;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;

@@ -1,4 +1,4 @@
-package org.robert;
+package org.robert.wc;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
