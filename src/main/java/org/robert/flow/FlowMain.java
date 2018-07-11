@@ -10,9 +10,9 @@ import org.apache.hadoop.mapreduce.Job;
 import java.io.IOException;
 
 public class FlowMain {
-    public static void main(String[] args) throws IOException {
-        Configuration conf=new Configuration();
-        Job job= Job.getInstance(conf,"flow count");
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf, "flow count");
 
         job.setJarByClass(FlowMain.class);
 
@@ -25,17 +25,11 @@ public class FlowMain {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FlowBean.class);
 
-        FileInputFormat.addInputPath(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        try {
-            boolean result = job.waitForCompletion(true);
-            System.exit(result?0:1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        boolean result = job.waitForCompletion(true);
+        System.exit(result ? 0 : 1);
 
     }
 
